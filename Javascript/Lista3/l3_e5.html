@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 3 Ejercicio Objeto Array</title>
+    <!-- - Crear una página que presente los elementos de un array numérico (inicialmente vacío) y botones con las opciones siguientes: 
+- Insertar valor al final del array. 
+- Insertar al principio del array. 
+- Borrar primer elemento. 
+- Borrar último elemento. 
+- Ordenar ascendentemente. 
+- Ordenar descendentemente. 
+Los datos a insertar en el array serán elementos aleatorios (random) de entre 1 y 1000. 
+-->
+    <script>
+        var numeros = [];
+
+        function NuevoValor(){
+            return Math.floor(Math.random() * 1000 + 1);
+        }
+
+        function Mostrar(){
+            document.getElementById("array").innerHTML = numeros;
+        }
+
+        function InsertarFinal(){
+           numeros.push(NuevoValor());  
+           Mostrar();
+        }
+
+        function InsertarPrincipio(){
+            numeros.unshift(NuevoValor());
+            Mostrar();
+        }
+
+        function BorrarPrincipio(){
+            numeros.shift();
+            Mostrar();
+        }
+
+        function BorrarFinal(){
+            numeros.pop();
+            Mostrar();
+        }
+
+        function OrdenarAsc(){
+            numeros.sort((a,b) => a-b);
+            Mostrar();
+        }
+
+        function OrdenarDesc(){
+            numeros.sort((a,b) => b-a);
+            Mostrar();
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Tratamiento de elementos de un array</h1>
+    <p>Los elementos del array son: <span id="array"></span></p>
+    <button onclick="InsertarFinal()">Insertar al final</button>
+    <button onclick="InsertarPrincipio()">Insertar al principio</button>
+    <button onclick="BorrarPrincipio()">Borrar el primer elemento</button>
+    <button onclick="BorrarFinal()">Borrar el último elemento</button>
+    <button onclick="OrdenarAsc()">Ordenar ascendentemente</button>
+    <button onclick="OrdenarDesc()">Ordenar descendentemente</button>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 1 Ejercicio 1</title>
+    <!-- Solicitar un número y presentar su tabla de multiplicar -->
+    
+    <script>
+        /* FORMA BÁSICA
+        // Declaramos una variable para almacenar el número
+        let numero;
+        //console.log(numero); // undefined porque no tiene aún ningún valor
+        numero = prompt("Introduzca un número","");
+        console.log("El tipo de la vble numero es "+ typeof numero);
+        numero = Number(numero);
+        console.log("numero vale " + numero);
+        console.log("El tipo de numero después de la conversión es: " + typeof numero);
+        if (!isNaN(numero) && numero>0){  
+            // La condición se cumple
+            for (let i=1; i<=10; i++){
+                document.write(numero + " x " + i + " = " + (numero * i) + "<br/>");
+            }
+        }else{
+            // La condición NO se cumple
+            alert("Lo sentimos, pero usted no ha insertado un número correcto");
+        }
+        */
+
+        // Segunda forma con un input y un botón
+        function Tabla(){
+            let numero = document.getElementById("numero").value;
+            // Declaramos una variable con todo el contenido HTML de la salida
+            let salida = "";
+            for (let i=1; i<=10; i++){
+                //salida += numero + " x " + i + " = " + (numero * i) + "<br/>";
+                salida += `${numero} x ${i} = ${numero * i}<br/>`;
+            }
+            //console.log(salida);
+            document.getElementById("parrafo").innerHTML = salida;
+        }
+
+    </script>
+</head>
+<body>
+    <!-- Para la segunda forma (más usada) pondremos una cabecera, un input y un botón -->
+    <h1>Tabla de multiplicar</h1>
+    <input type="number" min="1" max="10" id="numero" />
+    <button onclick="Tabla()">Mostrar tabla</button>
+    <p id="parrafo"></p>
+</body>
+</html>

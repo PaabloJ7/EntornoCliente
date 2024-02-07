@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 1 Ejercicio 4</title>
+    <!-- . Leer una cadena de texto mediante el método prompt() y generar un 
+array con las palabras que contiene. Posteriormente, mostrar la siguiente 
+información: 
+• Número de palabras 
+• Primera palabra y última palabra 
+• Las palabras colocadas en orden inverso 
+• Las palabras ordenadas de la a la z 
+• Las palabras ordenadas de la z a la a.-->
+
+    <script>
+        // Solicitamos la cadena al usuario mediante el método prompt()
+        let cadena = prompt("Inserte una frase","hola a todos");
+        // cadena es una variable tipo string; vamos a convertirla a un array con las palabras que tiene
+        let palabras = cadena.split(" ");
+        // Mostramos el número de palabras (usamos la propiedad length del array)
+        document.write("Número de palabras: "+palabras.length+"<br>");
+        // Presentamos la primera y la última palabra; accediendo a la posición requerida
+        document.write(`La primera palabra es <b>${palabras[0]}</b> y la última es <b>${palabras[palabras.length-1]}</b><br>`);
+        // Las palabras colocadas en orden inverso; accedemos al array desde la última pos a la primera
+        document.write("Las palabras en orden inverso son: ");
+        for (let i=palabras.length-1 ; i>=0 ; i--){
+            document.write(palabras[i]+" ");
+        }
+        document.write("<br>");
+        // Como alternativa a lo anterior vamos a usar el método reverse() de los arrays
+        document.write("Las palabras en orden inverso son: "+
+                        palabras.reverse().join(" ")+"<br>");
+        // Palabras ordenadas de la A a la Z; usamos el método sort() de arrays que ordena cadenas alfabéticamente
+        document.write(`Las palabras ordenadas de la A a la Z son: ${palabras.sort().join(' ')}<br>`);
+        // Palabras ordenadas de la Z a la A; sort y reverse
+        document.write(`Las palabras ordenadas de la Z a la A son: ${palabras.sort().reverse().join(' ')}<br>`);
+
+        
+        // EXTRA: Aclaración del método sort !!!
+        var numeros = [14,5,27,1,100,37];
+        numeros.sort(function(a,b){ 
+            //return a-b; // ordenación ascendente
+            return b-a; // ordenación descendente
+        });
+        console.log(numeros);
+
+        var personas = [
+            {nombre:"Juana",apellidos:"Sánchez Rey",edad:56},
+            {nombre:"José",apellidos:"Benítez Gil",edad:23},
+            {nombre:"Moisés",apellidos:"Gallego Montiel",edad:39},
+            {nombre:"Angélica",apellidos:"Mora Muñoz",edad:43}
+        ];
+        // ordenar por apellidos ascendentemente
+        personas.sort(function(a,b){
+            if (a.apellidos > b.apellidos) return 1;
+            if (a.apellidos < b.apellidos) return -1;
+            return 0;
+        });
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

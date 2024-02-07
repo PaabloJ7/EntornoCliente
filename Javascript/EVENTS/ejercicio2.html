@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ejercicio 15 - Información sobre eventos</title>
+<style type="text/css">
+body {font-family: arial, helvetica;}
+.info-box {width:160px; border:thin solid silver; padding:.5em; position:fixed;}
+#info1 {left: 10px; top: 10px;}
+#info2 {left: 180px; top: 10px;}
+.info-box h1 {margin: 0;}
+</style>
+<script type="text/javascript">
+    function muestraInformacion(mensaje, infoBoxId) {
+        document.getElementById(infoBoxId).innerHTML = '<h1>' + mensaje[0] + '</h1>';
+        for (var i = 1; i < mensaje.length; i++) {
+            document.getElementById(infoBoxId).innerHTML += '<p>' + mensaje[i] + '</p>';
+        }
+    }
+
+    // Evento para el movimiento del ratón
+    document.addEventListener('mousemove', function (e) {
+        // Crear mensaje con información del evento de movimiento del ratón
+        var mensaje = [
+            'Evento: Movimiento del ratón',
+            'Posición respecto del navegador - X: ' + e.clientX + ', Y: ' + e.clientY,
+            'Posición respecto de la página - X: ' + e.pageX + ', Y: ' + e.pageY
+        ];
+
+        // Mostrar información en el cuadro info1
+        muestraInformacion(mensaje, 'info1');
+        document.getElementById("info1").style.backgroundColor = 'white';
+    });
+
+    // Evento para la pulsación de teclas
+         document.addEventListener('keydown', function (e) {
+        // Crear mensaje con información del evento de tecla pulsada
+        var mensaje = [
+            'Evento: Tecla pulsada',
+            'Código de tecla: ' + e.keyCode,
+            'Tecla: ' + String.fromCharCode(e.keyCode)
+        ];
+
+        // Mostrar información en el cuadro info2
+        muestraInformacion(mensaje, 'info2');
+        document.getElementById("info2").style.backgroundColor = '#CCE6FF';
+    });
+
+    // Evento para el clic del ratón
+    document.addEventListener('mousedown', function () {
+        // Cambiar el fondo de ambos cuadros al hacer clic
+        document.getElementById("info1").style.backgroundColor = '#FFFFCC';
+        document.getElementById("info2").style.backgroundColor = '#FFFFCC';
+    });
+
+    // Evento para la liberación del botón del ratón
+    document.addEventListener('mouseup', function () {
+        // Restaurar el fondo de ambos cuadros al soltar el botón del ratón
+        document.getElementById("info1").style.backgroundColor = 'white';
+        document.getElementById("info2").style.backgroundColor = 'white';
+    });
+</script>
+
+</head>
+<body>
+<div id="info1" class="info-box"></div>
+<div id="info2" class="info-box"></div>
+<div id="info"></div>
+<div id="info2"></div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="5ec37510910e03a7c92d3507-|49" defer></script></body>
+</html>

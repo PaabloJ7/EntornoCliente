@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 2 Ejercicio 2</title>
+    <!--  Escribir el código de una función a la que se pasa como parámetro un número
+entero y devuelve como resultado una cadena de texto que indica si el número es
+par o impar. Mostrar por pantalla el resultado devuelto por la función.-->
+<script>
+    function ParImpar(numero){
+        if (numero%2 == 0){
+            return "Par";
+        }else{
+           return "Impar";
+        }
+    }
+
+    // Con funciones arrow
+    let ParImpar2 = numero => numero%2 == 0?"Par":"Impar";
+    // Usamos la función ParImpar, por ejemplo de la siguiente forma:
+    alert(ParImpar(200));
+    alert(ParImpar(11));
+
+    // Usamos la función ParImpar2
+    alert(ParImpar2(200));
+    alert(ParImpar2(11));
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej8</title>
+</head>      
+<body>
+    <p>
+        <label for="valor1">Ingrese primer valor:</label>
+        <input type="number" id="valor1" />
+    </p>
+    <p>
+        <label for="valor2">Ingrese segundo valor:</label>
+        <input type="number" id="valor2" />
+    </p>
+    <p>
+        <select id="operacion">
+            <option value="suma">Sumar</option>
+            <option value="resta">Restar</option>
+        </select>
+    </p>
+    <p>
+        <input type="button" value="Operar" id="calculo" onclick="realizarOperacion()" />
+    </p>
+    <p id="resultado1"></p>
+    <select multiple="multiple" id="operaciones">
+        <option value="suma">Sumar</option>
+        <option value="resta">Restar</option>
+    </select>
+    <p>
+        <input type="button" value="Operar" id="calculomultiple" onclick="realizarOperacionesMultiples()" />
+    </p>
+    <p id="resultado2"></p>
+
+    <script>
+        function realizarOperacion() {
+            var valor1 = parseFloat(document.getElementById('valor1').value);
+            var valor2 = parseFloat(document.getElementById('valor2').value);
+            var operacion = document.getElementById('operacion').value;
+            var resultado = 0;
+
+            if (operacion === 'suma') {
+                resultado = valor1 + valor2;
+            } else if (operacion === 'resta') {
+                resultado = valor1 - valor2;
+            }
+
+            document.getElementById('resultado1').innerHTML = 'Resultado: ' + resultado;
+        }
+
+        function realizarOperacionesMultiples() {
+            var operacionesSeleccionadas = document.getElementById('operaciones').selectedOptions;
+            var valor1 = parseFloat(document.getElementById('valor1').value);
+            var valor2 = parseFloat(document.getElementById('valor2').value);
+            var resultados = [];
+
+            for (var i = 0; i < operacionesSeleccionadas.length; i++) {
+                var operacion = operacionesSeleccionadas[i].value;
+
+                if (operacion === 'suma') {
+                    resultados.push(valor1 + valor2);
+                } else if (operacion === 'resta') {
+                    resultados.push(valor1 - valor2);
+                }
+            }
+
+            document.getElementById('resultado2').innerHTML = 'Resultados: ' + resultados.join(', ');
+        }
+    </script>
+</body>
+</html>

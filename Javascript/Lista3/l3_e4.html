@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 3 Ejercicio Objeto String</title>
+    <!-- Objeto String.- Solicitar una cadena de texto en un campo input, presentar el número de caracteres que
+contiene y presentar la propia cadena en itálica, en color rojo y en tachado. Aplicar el atributo
+style que corresponda.-->
+<!-- REVISAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR-->
+<script>
+        function Mostrar(){
+            let cadena = document.getElementById("cadena").value;
+
+            document.getElementById("longitud").innerHTML = cadena.length;
+
+            document.getElementById("cursiva").style.fontStyle = 'italic';
+            document.getElementById("cursiva").innerHTML = cadena;
+
+            document.getElementById("tachado").style.textDecoration = 'line-through';
+            document.getElementById("tachado").innerHTML = cadena;
+
+        }
+    </script>
+       
+</head>
+<body>
+    <input type="text" onkeyup="Mostrar()" id="cadena">
+    <p id="longitud"></p>
+    <p id="cursiva"></p>
+    <p id="tachado"></p>
+</body>
+</html>

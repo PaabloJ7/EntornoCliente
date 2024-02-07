@@ -1,0 +1,16 @@
+{
+    "numero": 12,
+    "cadena": "Hola mundo",
+    "booleano": true,
+    "matriz": [1, 2, 3, 4, 5],
+    "objeto": {
+        "nombre": "Pablo",
+        "edad": 21,
+        "direccion": "Avda Arcos, 21",
+        "contacto": {
+            "telefono": "668559911",
+            "email": "pablo@gmail.com"
+        }
+    },
+    "nulo": null
+}

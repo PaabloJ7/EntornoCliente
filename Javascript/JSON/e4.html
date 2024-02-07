@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos del alumno</title>
+</head>
+<body>
+
+<h2>Convert a JavaScript object into a JSON string, and send it to the server.</h2>
+
+<script>
+const myObj = { name: "Mario", apellidos: "Sánchez López", age: 26, city: "New York" };
+const myJSON = JSON.stringify(myObj);
+window.location = "demo_json.php?x=" + myJSON;
+</script>
+<!-- no he entendido bien el ejercicio -->
+</body>
+</html>
+

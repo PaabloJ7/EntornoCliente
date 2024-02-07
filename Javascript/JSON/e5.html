@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos del alumno</title>
+</head>
+<body>
+    
+    <h1 >Datos del alumno</h1>
+    <p id="datos"></p>
+
+    <script>
+        // String JSON
+        const jsonString = '{"nombre": "Mario", "apellidos": "Sánchez López", "nacido": "1986-11-26", "curso": "DAW2", "asignatura": "DEWC", "ciudad": "El Puerto de Santa María"}';
+
+        // Convertir JSON string a objeto 
+        const alumno = JSON.parse(jsonString);
+
+        // Convertir a formato fecha
+        alumno.nacido = new Date(alumno.nacido);
+
+        // Mostrar los datos del alumno
+        let datosAlumno = "";
+        for (const propiedad in alumno) {
+            datosAlumno += `${propiedad}: ${alumno[propiedad]}<br>`;
+        }
+
+        document.getElementById('datos').innerHTML = datosAlumno;
+    </script>
+
+</body>
+</html>

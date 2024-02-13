@@ -4,7 +4,7 @@ const mostrarTablaMultiplicar = (numero) => {
     }
   };
   
-  // Ejemplo de uso
+
   const numeroParaTabla = 7;
   mostrarTablaMultiplicar(numeroParaTabla);
   

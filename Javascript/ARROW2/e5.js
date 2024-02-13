@@ -13,7 +13,6 @@ const decimalToBinary = (decimal) => {
     return binary;
   };
   
-  // Ejemplo de uso
   const decimalNumero = 25;
   const binarioResultado = decimalToBinary(decimalNumero);
   

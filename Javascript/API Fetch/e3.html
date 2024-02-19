@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geolocalización IP</title>
+</head>
+<body>
+
+  <h1>Información de Geolocalización IP</h1>
+  <div id="geoInfo"></div>
+
+  <script>
+    // URL del API
+    const apiUrl = 'https://freegeoip.app/json/';
+
+    // Elemento HTML donde se monstrara la geolocalizacion  
+    const geoInfoElement = document.getElementById('geoInfo');
+
+    // Hacer la solicitud fetch
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        // Mostrar la información de geolocalización en la página
+        const geoInfoHTML = `
+          <strong>País:</strong> ${data.country_name} <br>
+          <strong>Ciudad:</strong> ${data.city} <br>
+          <strong>Código Postal:</strong> ${data.zip_code} <br>
+          <strong>IP:</strong> ${data.ip} <br>
+        `;
+        geoInfoElement.innerHTML = geoInfoHTML;
+      })
+      .catch(error => console.error('Error al realizar la solicitud:', error));
+  </script>
+
+  <h2>No se muestra nada (?)</h2>
+
+</body>
+</html>

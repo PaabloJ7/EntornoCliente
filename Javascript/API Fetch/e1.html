@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWAPI People</title>
+</head>
+<body>
+
+  <ul id="peopleList"></ul>
+
+  <script>
+    fetch('https://swapi.dev/api/people/')
+      .then(response => response.json())
+      .then(data => {
+        const peopleListElement = document.getElementById('peopleList');
+
+        // Recorre los resultados e imprime datos en lista
+        data.results.forEach(person => {
+          const listItem = document.createElement('li');
+          listItem.innerHTML = `
+            <strong>Nombre:</strong> ${person.name} <br>
+            <strong>Altura:</strong> ${person.height} <br>
+            <strong>Peso:</strong> ${person.mass} <br>
+            <strong>Color de cabello:</strong> ${person.hair_color} <br>
+            <strong>Color de ojos:</strong> ${person.eye_color} <br>
+            <hr>
+          `;
+          peopleListElement.appendChild(listItem);
+        });
+      })
+      .catch(error => console.error('Error al realizar la solicitud:', error));
+  </script>
+
+</body>
+</html>

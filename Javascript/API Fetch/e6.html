@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario JSON</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 8px;
+      background-color: #4574a0;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #4574a0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4574a0;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Formulario JSON</h1>
+
+  <form id="jsonForm">
+    <label for="keyInput">Descripcion del producto:</label>
+    <input type="text" id="keyInput" required>
+    
+    <label for="valueInput">Precio:</label>
+    <input type="text" id="valueInput" required>
+
+    <button type="button" onclick="addToJson()">Nuevo Articulo</button>
+  </form>
+
+  <h2>Contenido del JSON</h2>
+  <table id="jsonTable">
+    <thead>
+      <tr>
+        <th>Descripcion del Articulo</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody id="jsonTableBody"></tbody>
+  </table>
+
+  <script>
+    // Objeto JSON 
+    let jsonData = {};
+
+    function addToJson() {
+      const keyInput = document.getElementById('keyInput').value;
+      const valueInput = document.getElementById('valueInput').value;
+
+      // Agregar al JSON
+      jsonData[keyInput] = valueInput;
+
+      // Actualizar la tabla
+      updateTable();
+    }
+
+    function updateTable() {
+      const jsonTableBody = document.getElementById('jsonTableBody');
+      // Limpiar la tabla
+      jsonTableBody.innerHTML = '';
+
+      // Recorrer el JSON y agregar filas a la tabla
+      for (const key in jsonData) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${key}</td>
+          <td>${jsonData[key]}</td>
+        `;
+        jsonTableBody.appendChild(row);
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Provincias</title>
+</head>
+<body>
+
+  <h1>Provincias</h1>
+  <ul id="provincesList"></ul>
+
+  <script>
+    // URL del API
+    const apiUrl = 'https://apis.datos.gob.ar/georef/api/provincias';
+
+    // Elemento HTML donde se monstrara las provincias
+    const provincesListElement = document.getElementById('provincesList');
+
+    // fetch
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        // Verificar si hay provincias en los datos
+        if (data.provincias && data.provincias.length > 0) {
+          // Recorrer las provincias y mostrar la información
+          data.provincias.forEach(provincia => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+              <strong>Nombre:</strong> ${provincia.nombre} <br>
+              <strong>ID:</strong> ${provincia.id} <br>
+              <strong>Latitud:</strong> ${provincia.centroide.lat} <br>
+              <strong>Longitud:</strong> ${provincia.centroide.lon} <br>
+              <hr>
+            `;
+            provincesListElement.appendChild(listItem);
+          });
+        } else {
+          console.error('No se encontraron provincias en los datos.');
+        }
+      })
+      .catch(error => console.error('Error al realizar la solicitud:', error));
+  </script>
+
+</body>
+</html>

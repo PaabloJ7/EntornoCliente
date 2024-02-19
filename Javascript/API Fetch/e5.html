@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información del Usuario</title>
+</head>
+<body>
+
+  <h1>Información del Usuario</h1>
+  <div id="userInfo"></div>
+
+  <script>
+    // URL del API
+    const apiUrl = 'https://randomuser.me/api/';
+
+    // Elemento HTML donde se mostrara la información del usuario
+    const userInfoElement = document.getElementById('userInfo');
+
+    // fetch
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const user = data.results[0];
+
+        // Mostrar el primer y segundo nombre
+        const userNameHTML = `<strong>Primer Nombre:</strong> ${user.name.first} <br>
+                              <strong>Segundo Nombre:</strong> ${user.name.last} <br>`;
+        userInfoElement.innerHTML = userNameHTML;
+
+        // Determinar el género y cargar la imagen correspondiente
+        const gender = user.gender.toLowerCase();
+        const genderImage = gender === 'male' ? 'hombre.png' : 'mujer.png';
+
+        // Crear y mostrar la imagen
+        const userImage = new Image();
+        userImage.src = genderImage;
+        userInfoElement.appendChild(userImage);
+      })
+      .catch(error => console.error('Error al realizar la solicitud:', error));
+  </script>
+
+</body>
+</html>
